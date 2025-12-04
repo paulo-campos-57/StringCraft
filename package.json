@@ -1,0 +1,23 @@
+{
+  "name": "stringcraft",
+  "version": "1.0.0",
+  "description": "Repository intended for the StringCraft project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulo-campos-57/StringCraft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulo-campos-57/StringCraft/issues"
+  },
+  "homepage": "https://github.com/paulo-campos-57/StringCraft#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
