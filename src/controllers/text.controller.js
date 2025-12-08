@@ -1,4 +1,4 @@
-import { reverse, generateCPF } from '../services/text.service.js';
+import { reverse, generateCPF, caesarCipher } from '../services/text.service.js';
 
 const reverseStringController = (req, res) => {
     try {
@@ -23,7 +23,36 @@ const generateCPFController = (req, res) => {
     res.json({ cpf });
 };
 
+const cipherStringController = (req, res) => {
+    const { text, shift } = req.body;
+
+    if (!text || shift === undefined) {
+        return res.status(400).json({ error: "Parâmetros 'text' e 'shift' são obrigatórios." });
+    }
+
+    const result = caesarCipher(text, parseInt(shift));
+    res.json({ original: text, cifrado: result, deslocamento: shift });
+};
+
+const decipherStringController = (req, res) => {
+    const { text, shift } = req.body;
+
+    if (!text || shift === undefined) {
+        return res.status(400).json({ error: "Parâmetros 'text' e 'shift' são obrigatórios." });
+    }
+
+    const result = caesarCipher(text, -parseInt(shift));
+
+    res.json({
+        cifrado: text,
+        original: result,
+        deslocamento: shift
+    });
+};
+
 export {
     reverseStringController,
     generateCPFController,
+    cipherStringController,
+    decipherStringController,
 };
