@@ -1,7 +1,8 @@
 import { Router } from 'express';
 const router = Router();
-import { reverseString } from '../controllers/text.controller.js';
+import { reverseStringController, generateCPFController } from '../controllers/text.controller.js';
 
-router.post('/reverse', reverseString);
+router.post('/reverse', reverseStringController);
+router.get('/generate-cpf', generateCPFController);
 
 export default router;

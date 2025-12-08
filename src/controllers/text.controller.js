@@ -1,6 +1,6 @@
-import { reverse } from '../services/text.service.js';
+import { reverse, generateCPF } from '../services/text.service.js';
 
-const reverseString = (req, res) => {
+const reverseStringController = (req, res) => {
     try {
         const { text } = req.body;
 
@@ -18,6 +18,12 @@ const reverseString = (req, res) => {
     }
 };
 
+const generateCPFController = (req, res) => {
+    const cpf = generateCPF();
+    res.json({ cpf });
+};
+
 export {
-    reverseString,
+    reverseStringController,
+    generateCPFController,
 };
